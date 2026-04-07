@@ -36,23 +36,6 @@ html {
 }
 
 /* =====================================================
-0) GLOBAL VARIABLES & RESET
-===================================================== */
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --nav-offset: 120px;
-}
-
-@media (max-width: 767px) {
-  :root {
-    --nav-offset: 160px; /* Buffer for mobile header height */
-  }
-}
-
-/* =====================================================
 1) TOC BAR & PILLS (Desktop & TOC)
 ===================================================== */
 .faw-toc {
@@ -519,50 +502,6 @@ transition:none !important;
 }
 
 /* =====================================================
-   RESTORING: "WHAT YOU FIND" CARD GRID
-   Source: css calm Thursday - Section 4
-===================================================== */
-
-/* THE GRID CONTAINER */
-.grid-card-row {
-  display: grid !important;
-  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-  margin: 20px auto !important;
-  max-width: 1200px !important;
-  padding: 0 16px !important;
-}
-
-/* RESPONSIVE COLUMNS */
-@media (min-width: 560px) {
-  .grid-card-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-}
-
-@media (min-width: 920px) {
-  .grid-card-row { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-}
-
-@media (min-width: 1200px) {
-  .grid-card-row { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-}
-
-/* THE INDIVIDUAL CARDS (Inner Styling) */
-/* Ensure your card container in WordPress has the class 'grid-card' */
-.grid-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.grid-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.05) !important;
-}
-
-/* =====================================================
    FIX: "WHAT YOU FIND" (Section Formatting)
    Source: css calm Thursday - Page 2
 ===================================================== */
@@ -624,20 +563,6 @@ transition:none !important;
 
 .hub-image-wrap { flex: 0 0 25% !important; max-width: 25% !important; }
 .hub-content-wrap { flex: 0 0 75% !important; max-width: 75% !important; }
-
-/* --- 2) ANIMATION --- */
-@keyframes buttonPulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0.7); }
-    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(54, 117, 136, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0); }
-}
-
-.highlight-btn-active.grid-card-buttons a {
-    animation: buttonPulse 1.5s ease-in-out 2 !important;
-    background-color: #367588 !important;
-    color: white !important;
-}
-
 
 /* pills */
       .toc-pill-white{
@@ -916,11 +841,6 @@ transition:none !important;
   border-radius: 999px;
 }
 
-        .hub-excerpt {
-  font-size: 0.95rem;
-}
-        }
-      }
 /* Animation for the button visual indication */
 @keyframes buttonPulse {
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0.7); }
@@ -933,11 +853,6 @@ transition:none !important;
   animation: buttonPulse 1.5s ease-in-out 2; /* Pulses twice */
   background-color: #367588 !important; /* Ensures it stands out */
   color: white !important;
-}
-
-/* Optional: Smooth scrolling for the whole page */
-html {
-  scroll-behavior: smooth;
 }
 
 /* ── Navigation deduplication fix ──────────────────────────────── */
@@ -958,5 +873,275 @@ html {
 }
 
 /* ── Accessibility: ensure only one nav is in the tab order ──── */
-.nav-mobile-arrows[aria-hidden="true"
+/* When aria-hidden is set via JS, also remove from pointer events for consistency */
+.nav-mobile-arrows[aria-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
 
+/* =====================================================
+   HUB PAGE — LAYOUT & CONTENT CLASSES
+   Replaces inline styles per project conventions
+===================================================== */
+
+/* Anchor spacer at top of page */
+#top { height: 0; margin: 0; padding: 0; }
+
+/* Hub article header — h1 and accent color */
+.hub-heading { font-weight: 800; line-height: 1.1; }
+.hub-heading-accent { color: #C82333; }
+
+/* Article count/subtitle line */
+.hub-count-label {
+  text-align: left;
+  color: #000000;
+  margin-top: 1px;
+}
+
+/* Image figure inside hub-image-wrap */
+.hub-image-figure { margin-top: 1px; }
+
+/* Excerpt text below hub heading (hidden on phone portrait via aa-hide-phone-portrait) */
+.hub-excerpt { font-size: 0.95rem; padding: 0 20px; }
+
+/* =====================================================
+   TOC NAV — EXTENDED STYLES
+===================================================== */
+
+/* Override/extend faw-toc for inline-flex pill nav */
+.faw-toc {
+  display: inline-flex !important;
+  align-items: center !important;
+  max-width: 100% !important;
+  margin: 5px 0 !important;
+  gap: 10px !important;
+  padding: 15px 0 !important;
+  border-top: 1px solid #eee !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+/* Left/right scroll buttons in TOC */
+.toc-scroll-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Pill list inside TOC */
+#pill-toc-list {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  gap: 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* =====================================================
+   EMERGENCY NOTICE BAR
+===================================================== */
+
+.aa-emergency-notice {
+  color: #991B1B;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* =====================================================
+   EXPLORE SECTION HEADER
+===================================================== */
+
+.aa-explore-header { max-width: 1200px; margin: 0 auto; }
+.aa-explore-header p {
+  text-align: left;
+  color: #000000;
+  padding: 10px 1px 1px 15px;
+}
+
+/* =====================================================
+   CARD UTILITY — HR DIVIDER & RETURN TO TOP
+===================================================== */
+
+/* Thin divider inside card footer */
+.card-hr {
+  margin: 0 auto 16px;
+  max-width: 60%;
+  opacity: 0.25;
+  border: 0;
+  border-top: 1px solid currentColor;
+}
+
+/* Variant with tighter bottom margin (first card) */
+.card-hr-sm {
+  margin: 0 auto 8px;
+  max-width: 60%;
+  opacity: 0.25;
+  border: 0;
+  border-top: 1px solid currentColor;
+}
+
+/* Wrapper for return-to-top link centred in card footer */
+.return-to-top-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* Return-to-top anchor text style */
+.return-to-top {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+/* =====================================================
+   QUICK SUMMARY / OVERVIEW SECTION
+===================================================== */
+
+.aa-quick-summary {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.aa-quick-summary h2 { margin-top: 0; font-size: 1.25rem; }
+
+/* Medical disclaimer inside quick summary */
+.aa-medical-disclaimer {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff5f5;
+  border-left: 5px solid #d9534f;
+  font-style: italic;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   FLASHCARDS / "WHAT YOU FIND" SECTION
+===================================================== */
+
+.aa-flashcards-section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.aa-flashcards-section .mc-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* Responsive card grid inside flashcards section */
+.aa-flashcards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* =====================================================
+   MINI DISCLOSURES BLOCK
+===================================================== */
+
+/* Outer full-width group */
+.aa-disclosures-outer { width: 100%; max-width: 100%; }
+
+/* Inner constrained card */
+.aa-disclosures-inner {
+  background-color: inherit;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 20px 24px;
+  border-radius: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aa-mini-disclosures p { margin: 0 0 12px; font-size: 0.95rem; }
+.aa-mini-disclosures p:last-child { margin-bottom: 0; }
+.aa-mini-disclosures a,
+.aa-mini-disclosures-link { color: #367588; text-decoration: underline; }
+
+/* "Return to top" footer link inside disclosures */
+.aa-disclosures-footer { text-align: left; padding-top: 20px; }
+.aa-disclosures-footer a {
+  color: #367588;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   SITE SAFETY / DISCLAIMERS SECTION
+===================================================== */
+
+.aa-site-safety {
+  background-color: #fcfcfc;
+  border-top: 1px solid #eeeeee;
+  padding: 60px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+  clear: both;
+}
+
+.aa-site-safety-inner { max-width: 1000px; margin: 0 auto; }
+
+.aa-site-safety h2 {
+  font-size: 1.3rem;
+  color: #000;
+  border-bottom: 2px solid #991B1B;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.aa-site-safety p { margin-bottom: 15px; }
+
+/* Red left-border critical constraints box */
+.aa-safety-critical-box {
+  background-color: #fff5f5;
+  border-left: 5px solid #991B1B;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.aa-safety-critical-box h3 {
+  font-size: 1.1rem;
+  color: #991B1B;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.aa-safety-critical-box ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: square;
+}
+
+.aa-safety-critical-box li { margin-bottom: 10px; }
+.aa-safety-critical-box li:last-child { margin-bottom: 0; }
