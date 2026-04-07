@@ -1,0 +1,962 @@
+/* --- 0) GLOBAL VARIABLES & RESET --- */
+:root {
+    --nav-offset: 120px;
+    --aa-primary: #367588;
+}
+
+@media (max-width: 767px) {
+    :root { --nav-offset: 160px; }
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* --- 1) ACCESSIBILITY: SKIP LINK --- */
+.skip-link {
+    position: absolute !important;
+    left: -9999px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+}
+
+.skip-link:focus {
+    position: fixed !important;
+    left: 10px !important;
+    top: 10px !important;
+    width: auto !important;
+    height: auto !important;
+    background: #367588 !important;
+    color: #ffffff !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+}
+
+/* =====================================================
+0) GLOBAL VARIABLES & RESET
+===================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --nav-offset: 120px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --nav-offset: 160px; /* Buffer for mobile header height */
+  }
+}
+
+/* =====================================================
+1) TOC BAR & PILLS (Desktop & TOC)
+===================================================== */
+.faw-toc {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background-color: #ffffff !important;
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.faw-toc__list {
+  display: flex !important;
+  gap: 12px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  overflow-x: auto !important;
+}
+
+.faw-toc__list a, .faw-toc__list li a {
+  background-color: #367588 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+/* =====================================================
+2) MOBILE DROPDOWN PILL STYLING (The Button Look)
+===================================================== */
+.aa-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.aa-mobile-links a.mobile-pill {
+  display: block !important;
+  background-color: #367588 !important; /* Teal background */
+  color: #ffffff !important; /* White text */
+  padding: 14px 20px !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  text-align: center;
+  border: 1px solid #2a5d6d !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.aa-mobile-links a.mobile-pill:active {
+  background-color: #2a5d6d !important;
+  transform: scale(0.98);
+}
+
+
+/* =====================================================
+5) VISIBILITY RULES
+===================================================== */
+@media only screen and (max-width: 767px) {
+  .hide-on-mobile { display: none !important; }
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .aa-hide-phone-portrait { display: none !important; }
+  .aa-show-phone-portrait { display: block !important; }
+}
+/* =========================================================
+ALERTALLERGY — NAV (DESKTOP CENTER SPINE + MOBILE DROPDOWN)
+========================================================= */
+
+.aa-nav-wrap,
+.aa-nav-wrap *,
+.aa-nav-wrap *::before,
+.aa-nav-wrap *::after{ box-sizing:border-box; }
+
+.sr-only{
+position:absolute !important;
+width:1px !important;
+height:1px !important;
+padding:0 !important;
+margin:-1px !important;
+overflow:hidden !important;
+clip:rect(0,0,0,0) !important;
+white-space:nowrap !important;
+border:0 !important;
+}
+
+/* FULL BLEED HEADER */
+
+.aa-nav-wrap{
+position: sticky;
+top: 0;
+z-index: 9999;
+width: 100vw;
+margin-left: calc(50% - 50vw);
+margin-right: calc(50% - 50vw);
+background: #F0F4F7;
+border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+/* WP HARD PROTECTION */
+
+.wp-site-blocks .aa-nav-wrap,
+.entry-content .aa-nav-wrap,
+.wp-block-html .aa-nav-wrap{
+width:100vw !important;
+margin-left:calc(50% - 50vw) !important;
+margin-right:calc(50% - 50vw) !important;
+max-width:none !important;
+}
+
+/* GRID-LOCKED INNER NAV */
+
+.aa-nav{
+--aa-nav-max: 1200px;
+width: 100%;
+max-width: var(--aa-nav-max);
+margin-left: auto;
+margin-right: auto;
+padding: 10px 16px;
+display: grid;
+grid-template-columns: auto 1fr auto;
+column-gap: 14px;
+align-items: end;
+position: relative;
+}
+
+/* WP centering protection */
+
+.wp-site-blocks .aa-nav,
+.entry-content .aa-nav,
+.wp-block-html .aa-nav{
+max-width: var(--aa-nav-max) !important;
+margin-left:auto !important;
+margin-right:auto !important;
+}
+
+/* BRAND */
+
+.aa-brand{
+grid-column: 1;
+justify-self: start;
+display: inline-flex;
+align-items: flex-end;
+gap: 10px;
+text-decoration:none;
+color:#2C3E50;
+font-weight:800;
+white-space:nowrap;
+}
+
+.aa-brand-text{
+line-height:1;
+padding-bottom:4px;
+}
+
+/* ACTIONS */
+
+.aa-actions{
+grid-column: 3;
+justify-self: end;
+display:flex;
+align-items:flex-end;
+margin-left:12px;
+}
+
+/* CENTER: DESKTOP MENU + ARROWS */
+
+.aa-menu-wrap{
+grid-column: 2;
+justify-self: center;
+align-self: end;
+display:flex;
+align-items:flex-end;
+gap: 8px;
+width: min(860px, 100%);
+min-width: 0;
+}
+
+.aa-menu{
+flex: 1 1 auto;
+min-width: 0;
+display:flex;
+align-items:flex-end;
+gap:16px;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+.aa-menu::-webkit-scrollbar{
+display:none;
+}
+
+.aa-menu a{
+flex:0 0 auto;
+display:inline-flex;
+align-items:flex-end;
+text-decoration:none;
+color:#2C3E50;
+font-weight:650;
+font-size:14px;
+line-height:1;
+padding: 8px 6px 4px;
+border-radius:6px;
+}
+
+.aa-menu a:hover,
+.aa-menu a:focus-visible{
+background: rgba(255,255,255,.18);
+outline:none;
+}
+
+.aa-search-link{
+display:inline-flex;
+align-items:flex-end;
+justify-content:center;
+padding: 8px 6px 4px;
+}
+
+.aa-search-link svg{
+display:block;
+position:relative;
+top:1px;
+}
+
+/* SCROLL ARROWS */
+
+.aa-scroll{
+width:34px;
+height:34px;
+border-radius:999px;
+border:1px solid rgba(44,62,80,.25);
+background:#ffffff;
+color:#2C3E50;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+user-select:none;
+font-size:22px;
+line-height:1;
+}
+
+.aa-scroll:hover{
+background:#E0F2F1;
+}
+
+/* KEEP EDGE VISIBILITY CONTROL */
+
+.aa-menu-wrap.aa-at-start .aa-scroll-left{
+visibility:hidden;
+}
+
+.aa-menu-wrap.aa-at-end .aa-scroll-right{
+visibility:hidden;
+}
+
+/* HAMBURGER */
+
+.aa-burger{
+width:40px;
+height:40px;
+border-radius:8px;
+border:1px solid rgba(255,255,255,.4);
+background:#E0F2F1;
+display:none;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+.aa-burger-lines{
+width:18px;
+height:12px;
+position:relative;
+}
+
+.aa-burger-lines span{
+position:absolute;
+left:0;
+right:0;
+height:2px;
+background:#2C3E50;
+border-radius:2px;
+transition:all .2s ease;
+}
+
+.aa-burger-lines span:nth-child(1){ top:0; }
+.aa-burger-lines span:nth-child(2){ top:5px; }
+.aa-burger-lines span:nth-child(3){ top:10px; }
+
+/* =========================================================
+MOBILE DROPDOWN
+========================================================= */
+
+.aa-mobile-dropdown{
+display:none;
+}
+
+.aa-mobile-overlay{
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,.40);
+opacity: 0;
+pointer-events: none;
+transition: opacity .2s ease;
+z-index: 9998;
+}
+
+@media (max-width: 900px){
+
+.aa-menu-wrap{
+display:none !important;
+}
+
+.aa-burger{
+display:inline-flex !important;
+}
+
+.aa-nav{
+max-width:none !important;
+padding-left:10px;
+padding-right:10px;
+}
+
+.aa-mobile-dropdown{
+display:block;
+position:fixed;
+left:0;
+right:0;
+top: var(--aa-header-h, 60px);
+background:#F0F4F7;
+border-top:1px solid rgba(255,255,255,.20);
+border-bottom:1px solid #00897B;
+transform: translateY(-10px);
+opacity:0;
+pointer-events:none;
+transition: transform .2s ease, opacity .2s ease;
+z-index:9999;
+}
+
+.aa-mobile-dropdown-inner{
+padding:12px 12px 16px;
+max-height: calc(100vh - var(--aa-header-h, 60px) - 12px);
+overflow:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.aa-mobile-links{
+display:grid;
+gap:10px;
+margin:0;
+}
+
+.aa-mobile-links a{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px 12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.30);
+font-size:16px;
+font-weight:750;
+color:#2C3E50;
+text-decoration:none;
+line-height:1.2;
+overflow-wrap:anywhere;
+}
+
+.aa-mobile-links a span{
+margin-left:auto;
+flex:0 0 auto;
+white-space:nowrap;
+}
+
+.aa-mobile-links a:hover{
+background: rgba(255,255,255,.18);
+}
+
+html.aa-mobile-open .aa-mobile-dropdown{
+transform: translateY(0);
+opacity:1;
+pointer-events:auto;
+}
+
+html.aa-mobile-open .aa-mobile-overlay{
+opacity:1;
+pointer-events:auto;
+}
+
+html.aa-mobile-open .aa-burger-lines span:nth-child(1){
+top:5px;
+transform:rotate(45deg);
+}
+
+html.aa-mobile-open .aa-burger-lines span:nth-child(2){
+opacity:0;
+}
+
+html.aa-mobile-open .aa-burger-lines span:nth-child(3){
+top:5px;
+transform:rotate(-45deg);
+}
+
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce){
+
+.aa-burger-lines span,
+.aa-mobile-dropdown,
+.aa-mobile-overlay{
+transition:none !important;
+}
+
+}
+/* ========================================================= 
+   MOBILE HAMBURGER FIX 
+   (Ensures the dropdown is visible and clickable)
+========================================================= */
+
+@media (max-width: 900px) {
+    /* 1. Ensure the top bar stays above the TOC bar on mobile */
+    .aa-nav-wrap {
+        z-index: 10000 !important; /* Higher than TOC */
+    }
+
+    /* 2. Fix the Dropdown position so it's not hidden behind the TOC */
+    .aa-mobile-dropdown {
+        display: block;
+        visibility: visible;
+        top: 60px !important; /* Adjust this to your header height */
+        z-index: 9999 !important;
+    }
+
+    /* 3. Force the overlay to the front when menu is open */
+    html.aa-mobile-open .aa-mobile-overlay {
+        display: block !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    /* 4. Ensure the hamburger icon itself is clickable */
+    .aa-burger {
+        position: relative;
+        z-index: 10001 !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* =====================================================
+   RESTORING: "WHAT YOU FIND" CARD GRID
+   Source: css calm Thursday - Section 4
+===================================================== */
+
+/* THE GRID CONTAINER */
+.grid-card-row {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin: 20px auto !important;
+  max-width: 1200px !important;
+  padding: 0 16px !important;
+}
+
+/* RESPONSIVE COLUMNS */
+@media (min-width: 560px) {
+  .grid-card-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (min-width: 920px) {
+  .grid-card-row { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+@media (min-width: 1200px) {
+  .grid-card-row { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+
+/* THE INDIVIDUAL CARDS (Inner Styling) */
+/* Ensure your card container in WordPress has the class 'grid-card' */
+.grid-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.grid-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05) !important;
+}
+
+/* =====================================================
+   FIX: "WHAT YOU FIND" (Section Formatting)
+   Source: css calm Thursday - Page 2
+===================================================== */
+
+/* Container for the 'What You Find' Section */
+.what-you-find {
+    display: block !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+}
+
+/* The Row of Cards/Items */
+.faw-card-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    justify-content: center !important;
+}
+
+/* Individual Card Styling */
+.faw-card {
+    flex: 1 1 280px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    border: 1px solid #e0e6ed !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    text-align: center !important;
+}
+
+/* The Icon or Image inside the card */
+.faw-card-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 auto 15px !important;
+}
+
+/* The Title inside the card */
+.faw-card-title {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #367588 !important; /* Your Teal Color */
+    margin-bottom: 10px !important;
+}
+
+
+/* --- 1) HUB ARTICLE MODULE --- */
+.hub-article-module {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+    padding: 0px 0 !important;
+    border-bottom: 1px solid #eaeaea !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.hub-image-wrap { flex: 0 0 25% !important; max-width: 25% !important; }
+.hub-content-wrap { flex: 0 0 75% !important; max-width: 75% !important; }
+
+/* --- 2) ANIMATION --- */
+@keyframes buttonPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(54, 117, 136, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0); }
+}
+
+.highlight-btn-active.grid-card-buttons a {
+    animation: buttonPulse 1.5s ease-in-out 2 !important;
+    background-color: #367588 !important;
+    color: white !important;
+}
+
+
+/* pills */
+      .toc-pill-white{
+        display:inline-block;
+        background-color:#f8f9fa;
+        color:#000000 !important;
+        padding:8px 18px;
+        border-radius:50px;
+        text-decoration:none;
+        font-weight:600;
+        border:1px solid #367588;
+        transition:all .2s ease;
+      }
+      .toc-pill-white:hover{
+        background-color:#f7f7f7;
+        border-color:#888888;
+        box-shadow:0 2px 4px rgba(0,0,0,0.05);
+      }
+      #pill-toc-list::-webkit-scrollbar{ display:none; }
+      #pill-toc-list{ -ms-overflow-style:none; scrollbar-width:none; }
+
+
+/* --- 1) GRID WRAPPER --- */
+.grid-card-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    max-width: 1200px !important;
+    margin: 20px auto !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+}
+
+/* --- 2) CARD BASE --- */
+.grid-card {
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    flex: 0 0 calc(25% - 16px) !important;
+    max-width: calc(25% - 16px) !important;
+    border: 2px solid rgba(0,0,0,.18) !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.grid-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18) !important;
+}
+
+/* --- 3) IMAGE AREA (Stability Restored) --- */
+.card-image {
+    margin: 0 !important;
+    padding-top: 16px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    min-height: 150px !important; /* Row Stability Fix */
+}
+
+.card-image img {
+    max-width: 130px !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* --- 4) TEXT & TITLE (Alignment Fixes) --- */
+.card-text-block {
+    padding: 0 12px !important;
+    margin-top: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.card-title {
+    background: #f6faf8 !important;
+    margin: 0 4px 10px 4px !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.45 !important;
+}
+
+.card-subtitle {
+    margin: 0 auto 18px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    background: #fff !important;
+    color: #666666 !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: keep-all !important; /* Text stability fix */
+}
+
+/* --- 5) FOOTER & BUTTONS (Bottom Alignment) --- */
+.grid-card-footer {
+    margin-top: auto !important; /* Pushes buttons to bottom */
+    padding: 14px 20px 18px 20px !important;
+    text-align: center !important;
+}
+
+.grid-card-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+}
+
+.grid-card-buttons a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    background: #f6faf8 !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+/* --- 6) RESPONSIVE & RESET --- */
+@media (max-width:1199px) { .grid-card { flex: 0 0 calc(33.333% - 16px) !important; max-width: calc(33.333% - 16px) !important; } }
+@media (max-width:991px)  { .grid-card { flex: 0 0 calc(50% - 16px) !important; max-width: calc(50% - 16px) !important; } .card-title { font-size: 1.3rem !important; } }
+@media (max-width:599px)  { .grid-card { flex: 0 0 100% !important; max-width: 100% !important; } .card-title { font-size: 1.2rem !important; } }
+
+.grid-card-row h2, .grid-card-row p { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+/* ===========================
+   FLASHCARD CORE STYLES
+   =========================== */
+:root {
+  --mc-bg: #f6faf8;
+  --mc-card: #ffffff;
+  --mc-border: rgba(0,0,0,.10);
+  --mc-text: #000;
+  --mc-sub: rgba(0,0,0,.60);
+  --mc-radius: 18px;
+}
+
+.mc-wrap {
+  margin: 24px auto;
+  max-width: 1100px;
+  padding: 0 12px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--mc-text);
+}
+
+.mc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px 0;
+}
+
+.mc-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 560px) {
+  .mc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 920px) {
+  .mc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.mc-card {
+  background: var(--mc-card);
+  border: 1px solid var(--mc-border);
+  border-radius: var(--mc-radius);
+  padding: 14px 14px 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.mc-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mc-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  font-size: 15px;
+  margin: 0;
+}
+
+.mc-chip {
+  font-size: 12px;
+  color: #000;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.18);
+  padding: 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.mc-lines {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+  display: grid;
+  gap: 2px;
+}
+
+.mc-lines li {
+  margin: 0;
+  padding: 4px 8px;
+  line-height: 1.2;
+  border-radius: 12px;
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
+  font-size: 14px;
+  letter-spacing: -.01em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mc-card {
+    transform: translateZ(0);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .mc-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(54,117,136,.45);
+    box-shadow: 0 14px 34px rgba(0,0,0,.18);
+  }
+}
+
+.mc-bg {
+  background: var(--mc-bg);
+  border-radius: 22px;
+  padding: 18px 14px;
+}
+
+/* Return to top utility */
+.return-to-top-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.return-to-top--blue {
+  background: #367588;
+  color: #ffffff !important;
+  border: 1px solid #367588;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+        .hub-excerpt {
+  font-size: 0.95rem;
+}
+        }
+      }
+/* Animation for the button visual indication */
+@keyframes buttonPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(54, 117, 136, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0); }
+}
+
+/* This class is applied via JavaScript */
+.highlight-btn-active .grid-card-buttons a {
+  animation: buttonPulse 1.5s ease-in-out 2; /* Pulses twice */
+  background-color: #367588 !important; /* Ensures it stands out */
+  color: white !important;
+}
+
+/* Optional: Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Navigation deduplication fix ──────────────────────────────── */
+
+/* Hide the "arrow" version of the nav on desktop */
+.nav-mobile-arrows {
+  display: none;
+}
+
+/* Show arrow nav only on mobile, hide standard nav */
+@media (max-width: 768px) {
+  .nav-mobile-arrows {
+    display: block;
+  }
+  .nav-desktop {
+    display: none;
+  }
+}
+
+/* ── Accessibility: ensure only one nav is in the tab order ──── */
+.nav-mobile-arrows[aria-hidden="true"
+
