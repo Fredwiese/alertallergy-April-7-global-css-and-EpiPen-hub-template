@@ -4,6 +4,13 @@
         <a href="#main-hub-content" class="skip-link">Skip to Main Content</a>
 
         <header class="aa-nav-wrap" id="aaHeader">
+
+
+<!-- =====================================================
+ SCHEMA / SEO BLOCK
+ Replace ALL values below marked with REPLACE comments
+===================================================== -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,18 +151,40 @@
     <div class="wp-block-column">
         <div class="hub-article-module">
             <div class="hub-image-wrap">
+
+                <!-- =====================================================
+                 HERO IMAGE
+                 REPLACE: src — URL of the main hero/banner image
+                 REPLACE: alt — descriptive alt text for the image
+                ===================================================== -->
                 <figure class="wp-block-image aligncenter size-large" style="margin-top:1px;">
                     <img src="http://alertallergy.com/wp-content/uploads/2026/03/iStock-1448734019-istock-purchased-2107579287-scaled-1.webp" alt="Need to Know" class="wp-image-21949" fetchpriority="high" loading="eager" decoding="sync" />
                 </figure>
             </div>
 
             <div class="hub-content-wrap">
+               <!-- =====================================================
+                 PAGE TITLE
+                 REPLACE: The colored <span> word (currently "EpiPen") — topic keyword in red
+                 REPLACE: The text after the span if needed (currently just " Hub")
+                ===================================================== -->
+
                 <h1 class="wp-block-heading has-deep-navy-color has-text-color" style="font-weight:800; line-height:1.1">
                     <span style="color:#C82333">EpiPen</span> Hub
                 </h1>
+
+                <!-- =====================================================
+                 STAT LINE
+                 REPLACE: Number of topics and links (e.g. "7 Topics / 65+ Links")
+                ===================================================== -->
                 <p style="text-align:left;color:#000000;margin-top:1px;">
                     <strong style="font-weight:800;">7 Topics / 65+ Links</strong>
                 </p>
+
+                <!-- =====================================================
+                 HERO EXCERPT / INTRO TEXT
+                 REPLACE: Both sentences describing what this hub covers and its sources
+                ===================================================== -->
                 <p class="hub-excerpt aa-hide-phone-portrait" style="padding:0px 20px;">
                     Storage, expiration, disposal, and FDA-approved alternatives — this hub pulls it together from manufacturer documents and eleven professional websites, so the answers you need are in one place.<br><br>
                     A research starting point for the answers you need — Educational: Always verify with your medical provider.
@@ -163,19 +192,36 @@
             </div>
         </div>
 
+        <!-- =====================================================
+         TABLE OF CONTENTS PILLS
+         REPLACE: Each <li> label and href anchor to match your card IDs below
+         Add or remove <li> items to match the number of cards on this page
+        ===================================================== -->
+
         <nav class="faw-toc" aria-label="Section navigation" style="display:inline-flex; align-items:center; max-width:100%;margin:5px 0;gap:10px;padding:15px 0;border-top:1px solid #eee;border-bottom:1px solid #eee;">
             <button type="button" aria-label="Scroll left" style="background:#f0f0f0;border:1px solid #ddd;border-radius: 50%;width: 36px;height: 36px;cursor:pointer;flex-shrink:0;display:flex;align-items:center; justify-content:center;color:#333;font-weight:bold;font-size:1.2rem;" onclick="document.getElementById('pill-toc-list').scrollBy({left:-200, behavior: 'smooth'})">&lt;</button>
             <ul id="pill-toc-list" style="display:flex; white-space:nowrap; overflow-x:auto;padding:0;margin:0;list-style:none;font-size:0.85rem; gap:10px;-webkit-overflow-scrolling: touch; scroll-behavior:smooth;">
-                <li><a href="#card1-top" class="toc-pill-white">Experts</a></li>
-                <li><a href="#card3-top" class="toc-pill-white">Storage</a></li>
-                <li><a href="#card4-top" class="toc-pill-white">Expiration</a></li>
-                <li><a href="#card5-top" class="toc-pill-white">Disposal</a></li>
-                <li><a href="#card6-top" class="toc-pill-white">Alternatives</a></li>
-                <li><a href="#card7-top" class="toc-pill-white">Facts</a></li>
-                <li><a href="#card8-top" class="toc-pill-white">FAQ</a></li>
+                <li><a href="#card1-top" class="toc-pill-white">Experts</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card3-top" class="toc-pill-white">Storage</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card4-top" class="toc-pill-white">Expiration</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card5-top" class="toc-pill-white">Disposal</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card6-top" class="toc-pill-white">Alternatives</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card7-top" class="toc-pill-white">Facts</a></li><!-- REPLACE: label + href -->
+
+                <li><a href="#card8-top" class="toc-pill-white">FAQ</a></li><!-- REPLACE: label + href -->
+
             </ul>
             <button type="button" aria-label="Scroll right" style="background:#f0f0f0;border:1px solid #ddd;border-radius: 50%;width:36px;height: 36px;cursor:pointer;flex-shrink:0;display:flex; align-items:center; justify-content:center;color:#333;font-weight:bold;font-size:1.2rem;" onclick="document.getElementById('pill-toc-list').scrollBy({left:200,behavior: 'smooth'})">&gt;</button>
         </nav>
+  <!-- =====================================================
+     GRID SECTION HEADING
+     REPLACE: Number of topics in the label text
+    ===================================================== -->
 
         <div style="color:#991B1B;font-size:0.9rem; margin-top:5px;margin-bottom:0;line-height:1.2;text-align:center;">
             <strong>Emergency:</strong> Call 911. Don't use this site during a reaction.
@@ -192,8 +238,23 @@
   <div class="wp-block-group__inner-container">
 
     <div class="grid-card-row" itemscope itemtype="https://schema.org/ItemList">
+
+<!-- REPLACE: Update numberOfItems to match the actual number of cards -->
       <meta itemprop="numberOfItems" content="7" />
+      <!-- REPLACE: Update the ItemList name to match the page topic -->
       <meta itemprop="name" content="EpiPen Resource Hub" />
+
+  <!-- =====================================================
+       GRID CARD #1
+       REPLACE: id         — unique anchor matching the TOC pill href (e.g. card1-top)
+       REPLACE: itemprop position — card number (1, 2, 3 …)
+       REPLACE: img src    — card image URL
+       REPLACE: img alt    — descriptive alt text for card image
+       REPLACE: <a> href   — destination URL for this card's title link
+       REPLACE: itemprop name — card title text
+       REPLACE: card-subtitle — 2–3 short bullet-style lines of supporting text
+       REPLACE: footer <a> href & label — button destination URL and button label text
+      ===================================================== -->
 
       <div class="grid-card" id="card1-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="1" />
@@ -227,6 +288,12 @@ itemprop="image" loading="lazy"
 </div>
         </div>
       </div>
+
+  <!-- =====================================================
+       GRID CARD #2
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
 
       <div class="grid-card" id="card3-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="2" />
@@ -262,6 +329,12 @@ itemprop="image "loading="lazy"
           </div>
         </div>
       </div>
+
+   <!-- =====================================================
+       GRID CARD #3
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
 
       <div class="grid-card" id="card4-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="3" />
@@ -299,6 +372,13 @@ itemprop="image"loading="lazy"
         </div>
       </div>
 
+
+ <!-- =====================================================
+       GRID CARD #4
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
+
       <div class="grid-card" id="card5-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="4" />
         <figure class="card-image">
@@ -332,6 +412,13 @@ loading="lazy"
 </div>
         </div>
       </div>
+
+
+ <!-- =====================================================
+       GRID CARD #5
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
 
       <div class="grid-card" id="card6-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="5" />
@@ -367,6 +454,13 @@ loading="lazy"
         </div>
       </div>
 
+  <!-- =====================================================
+       GRID CARD #6
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
+
+
       <div class="grid-card" id="card7-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="6" />
         <figure class="card-image">
@@ -400,6 +494,13 @@ loading="lazy"
 </div>
         </div>
       </div>
+
+   <!-- =====================================================
+       GRID CARD #7
+       REPLACE: id, position, img src, img alt, title href, title text,
+                subtitle lines, footer button href and label
+      ===================================================== -->
+
 
       <div class="grid-card" id="card8-top" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <meta itemprop="position" content="7" />
@@ -438,6 +539,13 @@ loading="lazy"
     </div></div>
 </div>
 
+
+<!-- =====================================================
+ OVERVIEW SECTION
+ REPLACE: The <p> paragraph text summarising what this hub covers
+          and who it's intended for
+===================================================== -->
+
 <div class="aa-quick-summary" id="quick-summary" style="padding:40px 20px;max-width:1000px;margin:0 auto;font-size:1.2rem; line-height:1.5;color:#444;">
     <h2 style="margin-top:0;font-size:1.25rem;">Overview</h2>
     <p>This comprehensive resource hub compiles expert guidance on EpiPen use, proper storage, expiration timelines, hands-on training, and essential safety practices. Whether you're newly diagnosed with anaphylaxis, caring for a child with food allergies, or refreshing your emergency response knowledge, these curated resources provide critical information to help you act quickly and safely.</p>
@@ -446,12 +554,24 @@ loading="lazy"
     </aside>
 </div>
 
+<!-- =====================================================
+ "WHAT YOU'LL FIND" FLASHCARD SECTION
+ REPLACE: Section heading text (currently "What you'll find")
+ REPLACE: Each <article> card:
+   - mc-label  — card heading (e.g. "Resources for key information")
+   - mc-lines  — bullet list items inside each card
+ Add or remove <article> blocks to match your content
+===================================================== -->
+
 <div class="mc-wrap" id="flashcards" style="max-width:1000px; margin: 40px auto; padding: 0 20px;">
     <header class="mc-header">
-        <h2 style="margin:0; font-size:24px; font-weight:400;">What you'll find</h2>
+        <h2 style="margin:0; font-size:24px; font-weight:400;">What you'll find</h2> <!-- REPLACE: section heading -->
+
     </header>
     <div class="mc-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-        <article class="mc-card">
+
+  <!-- REPLACE: Flashcard #1 — heading and list items -->
+<article class="mc-card">
             <h3 class="mc-label">Resources for key information</h3>
             <ul class="mc-lines">
                 <li>Handling &amp; Reliability</li>
@@ -460,6 +580,8 @@ loading="lazy"
                 <li>Disposal &amp; End-of-Use Management</li>
             </ul>
         </article>
+
+      <!-- REPLACE: Flashcard #2 — heading and list items -->
         <article class="mc-card">
             <h3 class="mc-label">Safety Requires Action</h3>
             <ul class="mc-lines">
@@ -468,6 +590,8 @@ loading="lazy"
                 <li>Responsibility post-emergency.</li>
             </ul>
         </article>
+
+        <!-- REPLACE: Flashcard #3 — heading and list items -->
         <article class="mc-card">
             <h3 class="mc-label">Trusted Curation</h3>
             <ul class="mc-lines">
@@ -483,11 +607,9 @@ loading="lazy"
 
 <!-- wp:html -->
 <!-- =====================================================
- Safety Section Leave As Is
+ SAFETY SECTION — Leave As-Is unless site-wide changes needed
 ===================================================== -->
-<!-- =====================================================
- Safety Section Leave As Is
-===================================================== -->
+
 
 <div class="wp-block-group alignfull" style="margin-left: 0; margin-right: 0; width: 100%; max-width: 100%;">
   <div style="background-color:inherit; border:1px solid rgba(0,0,0,0.1); padding:20px 24px; border-radius:4px; max-width:1200px; margin: 0 auto;">
