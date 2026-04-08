@@ -167,10 +167,10 @@ max-width: var(--aa-nav-max);
 margin-left: auto;
 margin-right: auto;
 padding: 10px 16px;
-display: grid;
-grid-template-columns: auto 1fr auto;
+display: grid !important;
+grid-template-columns: auto 1fr auto !important;
 column-gap: 14px;
-align-items: end;
+align-items: center;
 position: relative;
 }
 
