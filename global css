@@ -36,23 +36,6 @@ html {
 }
 
 /* =====================================================
-0) GLOBAL VARIABLES & RESET
-===================================================== */
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --nav-offset: 120px;
-}
-
-@media (max-width: 767px) {
-  :root {
-    --nav-offset: 160px; /* Buffer for mobile header height */
-  }
-}
-
-/* =====================================================
 1) TOC BAR & PILLS (Desktop & TOC)
 ===================================================== */
 .faw-toc {
@@ -518,49 +501,7 @@ transition:none !important;
     }
 }
 
-/* =====================================================
-   RESTORING: "WHAT YOU FIND" CARD GRID
-   Source: css calm Thursday - Section 4
-===================================================== */
 
-/* THE GRID CONTAINER */
-.grid-card-row {
-  display: grid !important;
-  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-  margin: 20px auto !important;
-  max-width: 1200px !important;
-  padding: 0 16px !important;
-}
-
-/* RESPONSIVE COLUMNS */
-@media (min-width: 560px) {
-  .grid-card-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-}
-
-@media (min-width: 920px) {
-  .grid-card-row { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-}
-
-@media (min-width: 1200px) {
-  .grid-card-row { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-}
-
-/* THE INDIVIDUAL CARDS (Inner Styling) */
-/* Ensure your card container in WordPress has the class 'grid-card' */
-.grid-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.grid-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.05) !important;
-}
 
 /* =====================================================
    FIX: "WHAT YOU FIND" (Section Formatting)
@@ -631,13 +572,6 @@ transition:none !important;
     50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(54, 117, 136, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0); }
 }
-
-.highlight-btn-active.grid-card-buttons a {
-    animation: buttonPulse 1.5s ease-in-out 2 !important;
-    background-color: #367588 !important;
-    color: white !important;
-}
-
 
 /* pills */
       .toc-pill-white{
@@ -919,8 +853,7 @@ transition:none !important;
         .hub-excerpt {
   font-size: 0.95rem;
 }
-        }
-      }
+     
 /* Animation for the button visual indication */
 @keyframes buttonPulse {
   0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(54, 117, 136, 0.7); }
@@ -958,5 +891,9 @@ html {
 }
 
 /* ── Accessibility: ensure only one nav is in the tab order ──── */
-.nav-mobile-arrows[aria-hidden="true"
+/* When aria-hidden is set via JS, also remove from pointer events for consistency */
+.nav-mobile-arrows[aria-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
 
