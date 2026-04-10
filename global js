@@ -1,0 +1,195 @@
+(function () {
+  const STATE = { toc: false, faq: false, nav: false, mobile: false };
+
+  /* ==========================================
+      1) MOBILE DROPDOWN & HAMBURGER
+  ========================================== */
+  function initMobileDropdown() {
+    const htmlEl = document.documentElement;
+    const navWrap = document.querySelector(".aa-nav-wrap");
+    const burger = document.querySelector(".aa-burger");
+    const dropdown = document.querySelector(".aa-mobile-dropdown");
+    const overlay = document.querySelector(".aa-mobile-overlay");
+
+    if (!burger || !dropdown) return;
+    if (burger.dataset.aaMobileInit === "1") return;
+    burger.dataset.aaMobileInit = "1";
+
+    function setHeaderHeightVar() {
+      const h = navWrap ? navWrap.offsetHeight : 60;
+      htmlEl.style.setProperty("--aa-header-h", `${Math.round(h)}px`);
+    }
+
+    function openMobile() {
+      setHeaderHeightVar();
+      htmlEl.classList.add("aa-mobile-open");
+      burger.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMobile() {
+      htmlEl.classList.remove("aa-mobile-open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+
+    burger.addEventListener("click", (e) => {
+      e.preventDefault();
+      htmlEl.classList.contains("aa-mobile-open") ? closeMobile() : openMobile();
+    });
+
+    if (overlay) overlay.addEventListener("click", closeMobile);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && htmlEl.classList.contains("aa-mobile-open")) closeMobile();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900 && htmlEl.classList.contains("aa-mobile-open")) closeMobile();
+    });
+
+    setHeaderHeightVar();
+    STATE.mobile = true;
+  }
+
+  /* ==========================================
+      2) TOC ARROWS
+  ========================================== */
+  function initTOCArrows() {
+    const toc = document.querySelector(".faw-toc");
+    if (!toc || toc.dataset.aaInit === "1") return;
+
+    const list = toc.querySelector(".faw-toc__list") || toc.querySelector(".faw-toc_list");
+    const left = toc.querySelector(".faw-arrow--left");
+    const right = toc.querySelector(".faw-arrow--right");
+
+    if (!list || !left || !right) return;
+    toc.dataset.aaInit = "1";
+
+    const updateArrows = () => {
+      const scrollLeft = Math.ceil(list.scrollLeft);
+      const maxScroll = list.scrollWidth - list.offsetWidth;
+      left.style.opacity = scrollLeft <= 5 ? "0.3" : "1";
+      left.style.pointerEvents = scrollLeft <= 5 ? "none" : "auto";
+      right.style.opacity = scrollLeft >= maxScroll - 5 ? "0.3" : "1";
+      right.style.pointerEvents = scrollLeft >= maxScroll - 5 ? "none" : "auto";
+    };
+
+    left.addEventListener("click", (e) => { e.preventDefault(); list.scrollBy({ left: -240, behavior: "smooth" }); });
+    right.addEventListener("click", (e) => { e.preventDefault(); list.scrollBy({ left: 240, behavior: "smooth" }); });
+
+    list.addEventListener("scroll", () => requestAnimationFrame(updateArrows), { passive: true });
+    window.addEventListener("resize", updateArrows);
+    updateArrows();
+    STATE.toc = true;
+  }
+
+  /* ==========================================
+      3) DESKTOP TOP NAV SCROLL ARROWS
+  ========================================== */
+  function initTopNavScrollArrows() {
+    const wrap = document.querySelector(".aa-menu-wrap");
+    if (!wrap || wrap.dataset.aaScrollInit === "1") return;
+
+    const menu = wrap.querySelector(".aa-menu");
+    const btnL = wrap.querySelector(".aa-scroll-left");
+    const btnR = wrap.querySelector(".aa-scroll-right");
+
+    if (!menu || !btnL || !btnR) return;
+    wrap.dataset.aaScrollInit = "1";
+
+    function stepSize() { return Math.max(160, Math.floor(menu.clientWidth * 0.7)); }
+
+    function updateState() {
+      const maxScroll = menu.scrollWidth - menu.clientWidth;
+      const canScroll = maxScroll > 2;
+      btnL.disabled = !canScroll;
+      btnR.disabled = !canScroll;
+      wrap.classList.toggle("aa-at-start", menu.scrollLeft <= 1);
+      wrap.classList.toggle("aa-at-end", menu.scrollLeft >= (maxScroll - 1));
+    }
+
+    btnL.addEventListener("click", (e) => { e.preventDefault(); menu.scrollBy({ left: -stepSize(), behavior: "smooth" }); });
+    btnR.addEventListener("click", (e) => { e.preventDefault(); menu.scrollBy({ left: stepSize(), behavior: "smooth" }); });
+
+    menu.addEventListener("scroll", () => requestAnimationFrame(updateState), { passive: true });
+    window.addEventListener("resize", () => requestAnimationFrame(updateState));
+    updateState();
+    STATE.nav = true;
+  }
+
+  /* ==========================================
+      4) FAQ ACCORDION
+  ========================================== */
+  function initFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-q');
+    if (faqQuestions.length === 0) return;
+
+    faqQuestions.forEach(button => {
+      if (button.dataset.faqInit === "1") return;
+      button.dataset.faqInit = "1";
+
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const faqItem = button.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-a');
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        button.setAttribute('aria-expanded', !isExpanded);
+        isExpanded ? answer.setAttribute('hidden', '') : answer.removeAttribute('hidden');
+
+        const arrow = button.querySelector('.faq-arrow');
+        if (arrow) {
+          arrow.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(90deg)';
+          arrow.style.transition = 'transform 0.2s ease';
+        }
+      });
+    });
+    STATE.faq = true;
+  }
+
+  /* =========================
+      INITIALIZATION
+  ========================= */
+  function initAll() {
+    initMobileDropdown();
+    initTOCArrows();
+    initTopNavScrollArrows();
+    initFAQ();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll);
+  } else {
+    initAll();
+  }
+
+  const observer = new MutationObserver(() => {
+    const burger = document.querySelector(".aa-burger");
+    if (burger && burger.dataset.aaMobileInit !== "1") initAll();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+})();
+
+/* ==========================================
+    TOC PILL HIGHLIGHT — standalone
+========================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.toc-pill-white').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          document.querySelectorAll('.grid-card').forEach(card => {
+            card.classList.remove('highlight-btn-active');
+          });
+          targetElement.classList.add('highlight-btn-active');
+          setTimeout(() => {
+            targetElement.classList.remove('highlight-btn-active');
+          }, 3000);
+        }
+      }
+    });
+  });
+});
