@@ -1,6 +1,6 @@
 <div class="wp-block-columns">
     <div class="wp-block-column">
-        <div id="top" style="height:0;margin:0;padding:0;"></div>
+        <div id="top" style="height:0;margin:0;padding:0;padding-top:20px;"></div>
         <a href="#main-hub-content" class="skip-link">Skip to Main Content</a>
 
         <header class="aa-nav-wrap" id="aaHeader">
@@ -16,66 +16,127 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://alertallergy.com/#organization",
-      "name": "AlertAllergy",
-      "url": "https://alertallergy.com",
-      "logo": "https://alertallergy.com/logo.png",
-      "description": "Content-driven resource for the food allergy community.",
-      "sameAs": ["https://foodallergy.world"]
-    },
-    {
-      "@type": "MedicalWebPage",
-      "@id": "https://alertallergy.com/epipen-hub-2/#webpage",
+      "@type": "WebPage",
+      "@id": "https://alertallergy.com/epipen-hub-2/",
       "url": "https://alertallergy.com/epipen-hub-2/",
-      "name": "EpiPen Guide: Storage, Expiration, Disposal & Alternatives",
-      "description": "Comprehensive EpiPen resource hub covering storage, expiration, safe disposal, and FDA-approved alternatives.",
-      "lastReviewed": "2026-01-01",
-      "medicalAudience": "Patient",
-      "publisher": { "@id": "https://alertallergy.com/#organization" }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the proper storage temperature for an EpiPen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "According to manufacturer guidelines and FDA labeling: EpiPens should be stored at room temperature between 59°F and 77°F (15°C–25°C). Avoid extreme heat (do not leave in a car) and do not freeze. Keep the device in its carrier tube and store it where you can reach it quickly in an emergency."
+      "name": "EpiPen Hub: 65+ Expert Links on Use, Storage & Disposal",
+      "description": "A curated educational resource hub on EpiPen use, storage, expiration, disposal, and FDA-approved alternatives. For patients, caregivers, and parents managing anaphylaxis. Not medical advice.",
+      "inLanguage": "en-US",
+      "dateModified": "2026-04-09",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://alertallergy.com/",
+        "name": "FoodAllergy.world",
+        "url": "https://alertallergy.com/",
+        "description": "A non-profit resource hub dedicated to making life safer for the allergy community through curated guides and AI-assisted insights."
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://alertallergy.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Anaphylaxis",
+            "item": "https://alertallergy.com/anaphylaxis-resource-hub/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "EpiPen Hub",
+            "item": "https://alertallergy.com/epipen-hub-2/"
           }
+        ]
+      },
+      "about": {
+        "@type": "thing",
+        "name": "EpiPen",
+        "description": "Epinephrine auto-injector used for emergency treatment of anaphylaxis.",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Mylan Inc.",
+          "alternateName": "Viatris Inc."
+        }
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Patients, caregivers, and parents managing anaphylaxis or food allergies"
+      },
+      "hasPart": [
+        {
+          "@type": "WebPageElement",
+          "name": "Expert Authority Sites",
+          "description": "Links to 11 EpiPen and anaphylaxis authority sites including manufacturer and school training resources.",
+          "url": "https://alertallergy.com/epipen-expert-sites/"
         },
         {
-          "@type": "Question",
-          "name": "Can I use an expired EpiPen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Per current public health consensus: An expired EpiPen may have reduced effectiveness but is generally considered better than no treatment in a life-threatening emergency. However, you should replace your device before expiration. Refill early—do not wait for the last week."
-          }
+          "@type": "WebPageElement",
+          "name": "EpiPen Storage Temperature",
+          "description": "Guidance on safe temperature ranges, avoiding extreme heat and freezing, car storage risks, and quick-access placement.",
+          "url": "https://alertallergy.com/epipen-storage/"
         },
         {
-          "@type": "Question",
-          "name": "How do I safely dispose of a used or expired EpiPen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "EpiPens are sharps and classified as acute hazardous waste. They should be disposed of in an approved sharps container—never in regular household trash. Check your local guidelines for pharmacy drop-off locations."
-          }
+          "@type": "WebPageElement",
+          "name": "When Does an EpiPen Expire?",
+          "description": "Information on expired EpiPens, calendar tracking of expiration, and when to refill.",
+          "url": "https://www.consumerreports.org/drugs/expired-epipens-what-you-need-to-know/"
         },
         {
-          "@type": "Question",
-          "name": "Are there FDA-approved alternatives to EpiPen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The FDA has approved several epinephrine auto-injector alternatives, including Auvi-Q, Adrenaclick, and authorized generic versions. Consult your allergist to determine which option is right for your emergency plan."
-          }
+          "@type": "WebPageElement",
+          "name": "Safe Disposal of EpiPens",
+          "description": "EpiPens are sharps classified as acute hazardous waste. Proper disposal methods to protect others.",
+          "url": "https://alertallergy.com/epipen-disposal/"
         },
         {
-          "@type": "Question",
-          "name": "What should I do after using an EpiPen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "After using an epinephrine auto-injector, call 911 immediately. Epinephrine is a temporary measure and symptoms can return. Go to the emergency room even if symptoms improve and bring the used device with you."
-          }
+          "@type": "WebPageElement",
+          "name": "FDA-Approved Alternatives",
+          "description": "Overview of FDA-approved epinephrine auto-injector alternatives including Auvi-Q, Adrenaclick, and generics.",
+          "url": "https://alertallergy.com/epipen-resources/"
+        },
+        {
+          "@type": "WebPageElement",
+          "name": "Need to Know — Critical Facts",
+          "description": "Critical EpiPen safety facts presented as flash cards for patients and caregivers.",
+          "url": "https://alertallergy.com/fact-epipen/"
+        },
+        {
+          "@type": "WebPageElement",
+          "name": "EpiPen FAQ",
+          "description": "Frequently asked questions about EpiPen use for patients and caregivers.",
+          "url": "https://alertallergy.com/faq-epipen/"
+        }
+      ],
+      "disclaimer": "This page is an educational resource hub for patients and caregivers. It does not replace professional medical advice. In an emergency, call 911 immediately. Content has not been reviewed by a medical professional. This software has not been cleared or approved by the U.S. FDA or UK MHRA. Not affiliated with, sponsored by, or endorsed by Viatris Inc. or Mylan Inc.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "FoodAllergy.world",
+        "url": "https://alertallergy.com/",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@foodallergy.world",
+          "contactType": "customer support"
+        }
+      },
+      "citation": [
+        {
+          "@type": "Organization",
+          "name": "FARE — Food Allergy Research & Education",
+          "url": "https://www.foodallergy.org/"
+        },
+        {
+          "@type": "Organization",
+          "name": "AAFA — Asthma and Allergy Foundation of America",
+          "url": "https://www.aafa.org/"
+        },
+        {
+          "@type": "Organization",
+          "name": "Consumer Reports",
+          "url": "https://www.consumerreports.org/"
         }
       ]
     }
@@ -189,6 +250,11 @@
                     Storage, expiration, disposal, and FDA-approved alternatives — this hub pulls it together from manufacturer documents and eleven professional websites, so the answers you need are in one place.<br><br>
                     A research starting point for the answers you need — Educational: Always verify with your medical provider.
                 </p>
+<div style="width:100%;background-color: #fff5f5;padding:14px 10px;text-align:center;box-sizing:border-box;margin:0;">
+  <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#000000;font-weight:500;margin:0;line-height:1.5;">
+    &#9888; <strong style="color:#000000;">EMERGENCY:</strong> If you are having an allergic reaction  <strong style="color:#000000;">call 911 now.</strong> Do not use this site.
+  </p>
+</div>
             </div>
         </div>
 
@@ -218,14 +284,6 @@
             </ul>
             <button type="button" aria-label="Scroll right" style="background:#f0f0f0;border:1px solid #ddd;border-radius: 50%;width:36px;height: 36px;cursor:pointer;flex-shrink:0;display:flex; align-items:center; justify-content:center;color:#333;font-weight:bold;font-size:1.2rem;" onclick="document.getElementById('pill-toc-list').scrollBy({left:200,behavior: 'smooth'})">&gt;</button>
         </nav>
-  <!-- =====================================================
-     GRID SECTION HEADING
-     REPLACE: Number of topics in the label text
-    ===================================================== -->
-
-        <div style="color:#991B1B;font-size:0.9rem; margin-top:5px;margin-bottom:0;line-height:1.2;text-align:center;">
-            <strong>Emergency:</strong> Call 911. Don't use this site during a reaction.
-        </div>
         </div>
     </div>
 <div style="max-width: 1200px; margin: 0 auto;">
@@ -546,12 +604,10 @@ loading="lazy"
           and who it's intended for
 ===================================================== -->
 
-<div class="aa-quick-summary" id="quick-summary" style="padding:40px 20px;max-width:1000px;margin:0 auto;font-size:1.2rem; line-height:1.5;color:#444;">
-    <h2 style="margin-top:0;font-size:1.25rem;">Overview</h2>
+<div class="aa-quick-summary" id="quick-summary" style="padding: 10px 1px 1px 15px;max-width:1000px;margin:0 auto;font-size:1.2rem; line-height:1.5;color:#444;">
+    <h2 style="margin-top:0;font-size:1.25rem;"><strong>Overview</strong></h2>
     <p>This comprehensive resource hub compiles expert guidance on EpiPen use, proper storage, expiration timelines, hands-on training, and essential safety practices. Whether you're newly diagnosed with anaphylaxis, caring for a child with food allergies, or refreshing your emergency response knowledge, these curated resources provide critical information to help you act quickly and safely.</p>
-    <aside class="medical-disclaimer" style="margin-top: 20px; padding: 15px; background-color: #fff5f5; border-left: 5px solid #d9534f; font-style: italic;font-size: 0.9em; line-height: 1.6;">
-        <strong>Note:</strong> This is an educational resource hub for patients and caregivers. It does not replace professional medical advice. <strong>In an emergency, call 911 immediately and use your prescribed emergency plan.</strong>
-    </aside>
+
 </div>
 
 <!-- =====================================================
@@ -600,89 +656,57 @@ loading="lazy"
             </ul>
         </article>
     </div>
+<div style="padding-top: 20px; display: flex; justify-content: flex-start; width: 100%;">
+  <a href="#top" style="color: #367588; text-decoration: none; font-weight: 600; font-size: 0.95rem; margin-left: 0; margin-right: auto; padding-left: 20px;">↑ Return to top</a>
 </div>
-
+<aside class="medical-disclaimer" style="margin-top: 50px; padding: 15px; background-color: #fff5f5; border-left: 5px solid #d9534f; font-style: italic;font-size: 0.7em; line-height: 1.6;">
+        <strong>Note:</strong> This is an educational resource hub for patients and caregivers. It does not replace professional medical advice. <strong>In an emergency, call 911 immediately and use your prescribed emergency plan.</strong>
+    </aside>
+<p style="font-family:'DM Sans',sans-serif;font-size:13px;color:#5a5a5a;margin:0;padding:30px;">
+  For full legal terms, see our <a href="http://alertallergy.com/disclaimer-2/" style="color:#5a5a5a;text-decoration:underline;font-weight:500;">Disclaimer</a> and <a href="https://alertallergy.com/privacy-policy/" style="color:#5a5a5a;text-decoration:underline;font-weight:500;">Privacy Policy</a>.
+</p>
+</div>
 
 
 
 <!-- wp:html -->
 <!-- =====================================================
- SAFETY SECTION — Leave As-Is unless site-wide changes needed
+ Safety Section Leave As Is
 ===================================================== -->
 
-
-<div class="wp-block-group alignfull" style="margin-left: 0; margin-right: 0; width: 100%; max-width: 100%;">
-  <div style="background-color:inherit; border:1px solid rgba(0,0,0,0.1); padding:20px 24px; border-radius:4px; max-width:1200px; margin: 0 auto;">
-    <div class="aa-mini-disclosures" role="note" aria-label="Important disclosures" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #444; line-height: 1.6;">
-     
-      
-      <p style="margin:0 0 12px; font-size: 0.95rem;">
-      <br>  <strong>AI notice:</strong> Some content may be AI-assisted and may be wrong or outdated. Verify details with a qualified clinician.
-      </p>
-      
-      <p style="margin:0 0 12px; font-size: 0.95rem;">
-        <strong>Professional notice:</strong>The owners of this site are NOT Medical Professionals. This site is for informational purposes only — not intended for use during emergencies or as a substitute for professional medical advice. Content may be inaccurate or outdated. Always verify critical health details with a qualified clinician before taking action. In an emergency, call 911 immediately and follow your prescribed emergency plan.
-      </p>
-      
-      <p style="margin:0; font-size: 0.95rem;">
-        <strong>Privacy:</strong> If you contact us, please do not include sensitive medical information. See our <a href="/privacy-policy/" style="color: #367588; text-decoration: underline;">Privacy Policy</a>.
-      </p>
-
-    </div>
-<div style="text-align: left; padding-top: 20px;">
-      <a href="#top" style="color: #367588; text-decoration: none; font-weight: 600;font-size:0.95rem;">↑ Return to top</a>
-    </div>
   </div>
 </div>
 
 
-<script>
-    document.querySelectorAll('.toc-pill-white').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    document.querySelectorAll('.grid-card').forEach(card => {
-                        card.classList.remove('highlight-btn-active');
-                    });
-                    targetElement.classList.add('highlight-btn-active');
-                    setTimeout(() => {
-                        targetElement.classList.remove('highlight-btn-active');
-                    }, 3000);
-                }
-            }
-        });
-    });
-</script>
+
 </main>
 <div style="text-align: left;">
 </div>
-
 <main class="wp-block-group" style="margin-top:0"></main>
-<section id="site-safety-disclaimers" style="background-color: #fcfcfc; border-top: 1px solid #eeeeee; padding: 60px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95rem; line-height: 1.6; color: #444; clear: both;">
+<section id="site-safety-disclaimers" style="background-color: #fcfcfc; border-top: 1px solid #eeeeee; padding: 20px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95rem; line-height: 1.6; color: #444; clear: both;">
     <div style="max-width: 1000px; margin: 0 auto;">
-        
-        <h2 style="font-size: 1.3rem; color: #000; border-bottom: 2px solid #991B1B; display: inline-block; margin-bottom: 20px;">Safety &amp; Disclaimers</h2>
 
+        <h2 style="font-size: 1.3rem; color: #000; border-bottom: 2px solid #991B1B; display: inline-block; margin-bottom: 20px;">Safety &amp; Disclaimers</h2><br>
+⚠️ IMPORTANT — Read Before Using<br>
+Last Updated: April 9, 2026<br>
         <p style="margin-bottom: 15px;">
-            <strong>PURPOSE OF THIS WEBSITE:</strong> This tool is a <strong>decision-support assistant</strong>, not a diagnostic device. 
-            It is designed to help you organize your thoughts, summarize allergy research, and prepare for a discussion with a <strong>board-certified allergist</strong>. 
+            <strong>PURPOSE OF THIS WEBSITE:</strong> This tool is a <strong>decision-support assistant</strong>, not a diagnostic device.
+            It is designed to help you organize your thoughts, summarize allergy research, and prepare for a discussion with a <strong>board-certified allergist</strong>.
             It does not provide diagnosis, treatment, or emergency care.
         </p>
 
         <div style="background-color: #fff5f5; border-left: 5px solid #991B1B; padding: 20px; margin-bottom: 25px;">
-            <h3 style="font-size: 1.1rem; color: #991B1B; margin-top: 0; margin-bottom: 10px;">CRITICAL SAFETY CONSTRAINTS (The “Never” List)</h3>
+            <h3 style="font-size: 1.1rem; color: #991B1B; margin-top: 0; margin-bottom: 10px;">CRITICAL SAFETY CONSTRAINTS (The "Never" List)</h3>
             <ul style="margin: 0; padding-left: 20px; list-style-type: square;">
                 <li style="margin-bottom: 10px;"><strong>NEVER use this tool during an active allergic reaction.</strong> If you are experiencing hives, swelling, wheezing, trouble breathing, fainting, or rapidly worsening symptoms, <strong>call 911 immediately</strong>.</li>
                 <li style="margin-bottom: 10px;"><strong>NEVER use this tool for infants or children</strong> without direct supervision and final approval from a pediatrician.</li>
-                <li style="margin-bottom: 0;"><strong>NEVER change medication, dosing, or treatment plans</strong> based only on this website or any tool output. Follow your clinician’s plan.</li>
+                <li style="margin-bottom: 0;"><strong>NEVER change medication, dosing, or treatment plans</strong> based only on this website or any tool output. Follow your clinician's plan.</li>
             </ul>
         </div>
 
         <p style="margin-bottom: 15px;">
-            <strong>MEDICAL DISCLAIMER:</strong> This tool provides information and was aided by artificial intelligence (Gemini/ChatGPT) for educational and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. 
-            Never disregard professional medical advice or delay in seeking it because of something you have read on this website. 
+            <strong>MEDICAL DISCLAIMER:</strong> This tool provides information and was aided by artificial intelligence (Gemini/ChatGPT) for educational and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.
+            Never disregard professional medical advice or delay in seeking it because of something you have read on this website.
             <strong>Reliance on any information provided by this tool is solely at your own risk.</strong>
         </p>
 
@@ -695,9 +719,28 @@ loading="lazy"
         </p>
 
         <p style="margin-bottom: 15px;">
-            <strong>NO ENDORSEMENT &amp; DEVICE DISCLAIMER:</strong> FoodAllergy.world does not recommend or endorse any specific tests, clinicians, products, or procedures mentioned on external sites. This site is independent and not affiliated with, sponsored by, or endorsed by Viatris Inc. or Mylan Inc. <strong>EpiPen® is a registered trademark of Mylan Inc.</strong>
+            <strong>NO ENDORSEMENT &amp; DEVICE DISCLAIMER:</strong> FoodAllergy.world does not recommend or endorse any specific tests, clinicians, products, or procedures, whether mentioned on this site or on external sites, except where marked as a "Suggested Resource" on the relevant page. Any such suggestions are provided as a convenience only and do not constitute a formal endorsement or affiliate relationship unless explicitly stated. This site is independent and not affiliated with, sponsored by, or endorsed by Viatris Inc. or Mylan Inc. EpiPen® is a registered trademark of Mylan Inc.
         </p>
 
 </section>
+<script>
+    document.querySelectorAll(‘.toc-pill-white’).forEach(link => {
+        link.addEventListener(‘click’, function(e) {
+            const targetId = this.getAttribute(‘href’);
+            if (targetId.startsWith(‘#’)) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    document.querySelectorAll(‘.grid-card’).forEach(card => {
+                        card.classList.remove(‘highlight-btn-active’);
+                    });
+                    targetElement.classList.add(‘highlight-btn-active’);
+                    setTimeout(() => {
+                        targetElement.classList.remove(‘highlight-btn-active’);
+                    }, 3000);
+                }
+            }
+        });
+    });
+</script>
 <!-- /wp:html -->
 
